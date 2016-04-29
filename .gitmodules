@@ -1,3 +1,6 @@
 [submodule "GpioTester/ArduinoForLinux"]
 	path = GpioTester/ArduinoForLinux
 	url = https://github.com/mwales/ArduinoForLinux
+[submodule "oled_display/Adafruit_SSD1306"]
+	path = oled_display/Adafruit_SSD1306
+	url = https://github.com/mwales/Adafruit_SSD1306
