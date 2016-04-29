@@ -1,0 +1,3 @@
+[submodule "GpioTester/ArduinoForLinux"]
+	path = GpioTester/ArduinoForLinux
+	url = https://github.com/mwales/ArduinoForLinux
