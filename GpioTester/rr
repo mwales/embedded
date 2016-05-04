@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Execute the application remotely on raspberry pi
+
+ssh pi@pi3 "cd checkouts/embedded/GpioTester/armBuild; ./gpio_tester"
+

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Execute make clean, cmake, and make via SSH on the Raspberry PI after copying source to it
+
+rsync -av ./ pi@pi3:/home/pi/checkouts/embedded/GpioTester/
+
+ssh pi@pi3 "cd checkouts/embedded/GpioTester/armBuild; make clean; cmake ../; make -j4"
+
+
