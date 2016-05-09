@@ -6,9 +6,14 @@ set(SOURCE_FILES example.cpp)
 #add_subdirectory(Adafruit-GFX-Library)
 add_subdirectory(Adafruit_SSD1306)
 
+#INCLUDE(FindPkgConfig)
+
+INCLUDE_DIRECTORIES(Adafruit_SSD1306 Adafruit_SSD1306/Adafruit-GFX-Library)
+
 add_executable(ladyada ${SOURCE_FILES} example.cpp)
 
-target_link_libraries(ladyada Adafruit_SSD1306)
+target_link_libraries(ladyada SSD1306)
+
 INCLUDE(FindPkgConfig)
 
 INCLUDE_DIRECTORIES(Adafruit_SSD1306 Adafruit_SSD1306/Adafruit-GFX-Library)
