@@ -4,11 +4,15 @@ project (ladyada)
 set(SOURCE_FILES example.cpp)
 
 #add_subdirectory(Adafruit-GFX-Library)
-add_subdirectory(Adafruit_SSD1306)
+add_subdirectory(Adafruit_SSD1306
+                 )
 
 #INCLUDE(FindPkgConfig)
 
-INCLUDE_DIRECTORIES(Adafruit_SSD1306 Adafruit_SSD1306/Adafruit-GFX-Library)
+INCLUDE_DIRECTORIES(Adafruit_SSD1306 
+                    Adafruit_SSD1306/Adafruit-GFX-Library
+                    Adafruit_SSD1306/ArduinoForLinux
+                    )
 
 add_executable(ladyada ${SOURCE_FILES} example.cpp)
 

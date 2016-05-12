@@ -19,9 +19,11 @@ All text above, and the splash screen must be included in any redistribution
 #include <algorithm>
 #include "Adafruit_GFX.h"
 #include "Adafruit_SSD1306.h"
+#include "ArduinoOnLinux.h"
 
 using namespace Adafruit;
 using namespace std;
+using namespace Arduino;
 
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);
