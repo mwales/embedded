@@ -263,12 +263,37 @@ void testscrolltext(void) {
   display.stopscroll();
 }
 
+void mikesTest()
+{
+   std::cout << "Starting mikes" << std::endl;
+
+   display.clearDisplay();
+     //display.drawLine(0, 0, display.width()-1, display.height()-1, WHITE);
+   display.drawPixel(0,0, WHITE);
+   display.drawPixel(display.width()-1,0, WHITE);
+   display.drawPixel(0,display.height()-1, WHITE);
+   display.drawPixel(display.width()-1,display.height()-1, WHITE);
+
+   display.display();
+
+   std::cout << "waiting now" << std::endl;
+
+   for(int i = 0; i < 20; i++)
+      delay(1000);
+
+   std::cout << "delay done" << std::endl;
+}
+
 void setup()   {
   //Serial.begin(9600);
 
+   std::cout << "Size of int = " << sizeof(int) << std::endl;
+
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3D);  // initialize with the I2C addr 0x3D (for the 128x64)
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3c);  // initialize with the I2C addr 0x3D (for the 128x64)
   // init done
+
+  mikesTest();
 
   // Show image buffer on the display hardware.
   // Since the buffer is intialized with an Adafruit splashscreen
