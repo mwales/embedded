@@ -1,0 +1,9 @@
+#!/bin/bash
+# Remote Compile
+# Script copies the source to Raspberry Pi, and then executes the build command via SSH
+
+rsync -av ./ pi@pi3:/home/pi/checkouts/embedded/oled_display/
+
+ssh pi@pi3 "cd checkouts/embedded/oled_display/armBuild; make -j4"
+
+

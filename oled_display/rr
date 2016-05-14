@@ -1,0 +1,6 @@
+#!/bin/bash
+# Remote run
+# Execute the application remotely on raspberry pi
+
+ssh pi@pi3 "cd checkouts/embedded/oled_display/armBuild; ./ladyada"
+
