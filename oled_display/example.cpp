@@ -274,12 +274,15 @@ void mikesTest()
    display.drawPixel(0,display.height()-1, WHITE);
    display.drawPixel(display.width()-1,display.height()-1, WHITE);
 
+   std::cout << "Buffer contents:" << std::endl;
+   std::cout << display.dumpBuffer() << std::endl;
+
    display.display();
 
    std::cout << "waiting now" << std::endl;
 
    for(int i = 0; i < 20; i++)
-      delay(1000);
+      delay(100000);
 
    std::cout << "delay done" << std::endl;
 }
@@ -293,12 +296,16 @@ void setup()   {
   display.begin(SSD1306_SWITCHCAPVCC, 0x3c);  // initialize with the I2C addr 0x3D (for the 128x64)
   // init done
 
-  mikesTest();
+  //mikesTest();
 
   // Show image buffer on the display hardware.
   // Since the buffer is intialized with an Adafruit splashscreen
   // internally, this will display the splashscreen.
   display.display();
+
+  std::cout << "Buffer contents:" << std::endl;
+  std::cout << display.dumpBuffer() << std::endl;
+
   delay(2000);
 
   // Clear the buffer.
