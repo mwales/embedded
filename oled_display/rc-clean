@@ -4,6 +4,6 @@
 
 rsync -av ./ pi@pi3:/home/pi/checkouts/embedded/oled_display/
 
-ssh pi@pi3 "cd checkouts/embedded/oled_display/armBuild; make clean; cmake ../; make -j4"
+ssh pi@pi3 "cd checkouts/embedded/oled_display/armBuild; make clean; cmake -DCMAKE_BUILD_TYPE=Debug ../; make -j4"
 
 
