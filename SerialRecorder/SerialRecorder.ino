@@ -1,4 +1,6 @@
 #include "CommandLineUtil.h"
+#include "Recorder.h"
+#include "RecordingEntryManager.h"
 
 void setup()
 {
@@ -10,11 +12,16 @@ void setup()
   }
 
   Serial.println("Code begin!");
+  Serial1.begin(115200);
   
   // put your setup code here, to run once:
   clu_initDebugCommands();
 
+  unsigned long var;
+  Serial.print("Size of unsigned long: ");
+  Serial.println(sizeof(unsigned long));
 
+  RecordingEntryManager::createInstance();
 }
 
 int loopCounter = 0;
@@ -27,6 +34,8 @@ void loop()
 		char nextChar = Serial.read();
 		clu_processCharacter(nextChar);
 	}
+
+	pollSerialPort();
 
 	loopCounter++;
 	delay(1);

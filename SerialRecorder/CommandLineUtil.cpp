@@ -2,17 +2,18 @@
 #include "Arduino.h"
 #include <stdint.h>
 #include <string.h>
+#include "Recorder.h"
+#include "MemoryFree.h"
 
 // Add handler commands to the list, and implementation functions
 
-void handler1()
+void memFreeHandler()
 {
 	Serial.println("Handler 1 called");
-}
+	int bytesFree = freeMemory();
 
-void handler2()
-{
-	Serial.println("Handler 2 called");  
+	Serial.print("Num bytes free: ");
+	Serial.println(bytesFree);
 }
 
 void helpHandler();
@@ -25,12 +26,22 @@ typedef struct
 } CmdLineEntry;
 
 
+
 // I don't want to waste RAM, so I don't have a dynamic registration system
 // Just handjam everything into this list
 CmdLineEntry entryList[] = {
-	{ handler1, "handler1", "handler 1 help" },
-	{ handler2, "handler2", "handler 2 help" },
-	{ helpHandler, "help", "lists commands"},
+	{ memFreeHandler,  "memfree", "Gets RAM bytes RAM free" },
+	{ startRecording,  "start",   "Starts recording data from serial" },
+	{ statusRecording, "status",  "Gets status of data recording" },
+	{ stopRecording,   "stop",    "Stops recording data from serial" },
+	{ playRecording,   "play",    "Starts recording playback" },
+	{ dumpRecording,   "dump",    "Dumps recording so we can import later" },
+	{ importRecording, "import",  "Imports a recording from control serial" },
+	{ printCurrentTick,"tick",    "Prints current CPU tick" },
+	{ testFunction,    "test",    "Runs internal tests" },
+	{ resetBoard,      "reset",   "Reset board" },
+	{ hexDump,         "hex",     "Hex Dump" },
+	{ helpHandler,     "help",    "lists commands"},
 };
 
 // ********************************************************************************
